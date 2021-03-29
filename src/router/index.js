@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import About from '../views/About.vue'
+
 
 Vue.use(VueRouter)
 
@@ -11,21 +13,26 @@ const routes = [
     component: Home
   },
   {
+    path: '/about',
+    name: 'About',
+    component: About
+  },
+  {
     path: '/products',
     name: 'Products',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Products.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/Vuexcrud/Products.vue')
   },
   {
     path: '/product/new',
     name: 'Product',
     props: true,
-    component: () => import(/* webpackChunkName: "about" */ '../views/Product.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/Vuexcrud/Product.vue')
   },
   {
     path: '/product/:id/edit',
     name: 'EditProduct',
     props: true,
-    component: () => import(/* webpackChunkName: "about" */ '../views/Product.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/Vuexcrud/Product.vue')
   },
   {
     path: '/list',
@@ -43,6 +50,12 @@ const routes = [
     name: 'edit',
     props:true,
     component: () => import(/* webpackChunkName: "about" */ '../views/firestore/create.vue')
+  },
+  {
+    path: '/realList',
+    name: 'Firebase List',
+    props: true,
+    component: () => import(/* webpackChunkName: "about" */ '../views/RealTimeCrud/Products.vue')
   },
 ]
 
